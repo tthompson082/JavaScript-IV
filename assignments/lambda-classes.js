@@ -27,7 +27,7 @@ class Instructors extends Person {
     gradeScore(student) {
         let plusOrMinus = Math.random() < 0.5 ? -1 : 1;
         let newGrade = student.grade < 70 ? student.grade + ((Math.random() * 10) * plusOrMinus) : student.grade;
-        return newGrade
+        return newGrade.toPrecision(4);
     }
 }
 
@@ -41,6 +41,11 @@ class Students extends Person {
     }
     listSubjects() {
         console.log(this.favSubjects.join('\n'))
+    }
+    listSubjects2() {
+        this.favSubjects.map(function(favClass) {
+            console.log(favClass)
+        })
     }
     PRAssignment(subject) {
         console.log(`${this.name} has submitted a PR for ${subject}`)
@@ -170,16 +175,19 @@ const james = new ProjectManagers ({
 //students
 tyler.speak();
 tyler.listSubjects();
+tyler.listSubjects2();
 tyler.PRAssignment('JavaScript Classes');
 tyler.sprintChallenge('JavaScript');
 
 tim.speak();
 tim.listSubjects();
+tim.listSubjects2();
 tim.PRAssignment('JavaScript Classes');
 tim.sprintChallenge('JavaScript');
 
 jim.speak();
 jim.listSubjects();
+jim.listSubjects2();
 jim.PRAssignment('JavaScript Classes');
 jim.sprintChallenge('JavaScript');
 
